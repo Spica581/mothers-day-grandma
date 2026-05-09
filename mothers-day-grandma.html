@@ -1,0 +1,714 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Happy Mother's Day 🌸</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&family=Lato:wght@300;400;700&family=Dancing+Script:wght@500;700&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ── Reset & Base ──────────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --rose:     #C0406B;
+      --rose-mid: #E8748A;
+      --rose-lt:  #F9D0DC;
+      --gold:     #D4A843;
+      --cream:    #FFF8F2;
+      --blush:    #FFF0F5;
+      --mauve:    #8B3A58;
+      --dark:     #3D1A2C;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Lato', sans-serif;
+      background: var(--blush);
+      color: var(--dark);
+      overflow-x: hidden;
+      min-height: 100vh;
+    }
+
+    /* ── Typography helpers ───────────────────────────────────── */
+    .serif   { font-family: 'Cormorant Garamond', Georgia, serif; }
+    .cursive { font-family: 'Dancing Script', cursive; }
+
+    /* ── Floating hearts background ───────────────────────────── */
+    #hearts-canvas {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
+      overflow: hidden;
+    }
+
+    .heart {
+      position: absolute;
+      bottom: -80px;
+      font-size: 22px;
+      opacity: 0;
+      animation: floatHeart linear infinite;
+      user-select: none;
+    }
+
+    @keyframes floatHeart {
+      0%   { transform: translateY(0) rotate(-10deg) scale(0.8); opacity: 0; }
+      10%  { opacity: 0.75; }
+      90%  { opacity: 0.4; }
+      100% { transform: translateY(-110vh) rotate(20deg) scale(1.1); opacity: 0; }
+    }
+
+    /* ── Sections ─────────────────────────────────────────────── */
+    section {
+      position: relative;
+      z-index: 1;
+      padding: 80px 24px;
+    }
+
+    .container {
+      max-width: 760px;
+      margin: 0 auto;
+    }
+
+    /* ── Hero ─────────────────────────────────────────────────── */
+    #hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      background: linear-gradient(160deg, #fff0f5 0%, #ffd6e7 50%, #fff0d6 100%);
+      padding: 40px 24px;
+    }
+
+    .hero-flower {
+      font-size: 90px;
+      display: block;
+      margin-bottom: 24px;
+      animation: sway 3.5s ease-in-out infinite;
+    }
+
+    @keyframes sway {
+      0%, 100% { transform: rotate(-6deg) scale(1);    }
+      50%       { transform: rotate( 6deg) scale(1.08); }
+    }
+
+    .hero-title {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: clamp(2.8rem, 8vw, 5.5rem);
+      font-weight: 600;
+      line-height: 1.15;
+      color: var(--dark);
+      margin-bottom: 16px;
+    }
+
+    .hero-title em {
+      font-style: italic;
+      color: var(--rose);
+    }
+
+    .hero-sub {
+      font-family: 'Dancing Script', cursive;
+      font-size: clamp(1.4rem, 4vw, 2rem);
+      color: var(--mauve);
+      margin-bottom: 40px;
+    }
+
+    .scroll-hint {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+      color: var(--rose-mid);
+      font-size: 13px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      animation: bob 2s ease-in-out infinite;
+    }
+
+    @keyframes bob {
+      0%, 100% { transform: translateY(0); }
+      50%       { transform: translateY(8px); }
+    }
+
+    /* ── Divider ──────────────────────────────────────────────── */
+    .divider {
+      width: 80px;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, var(--rose-lt), transparent);
+      margin: 32px auto;
+    }
+
+    .divider-flower {
+      text-align: center;
+      font-size: 28px;
+      margin: 20px 0;
+    }
+
+    /* ── Section heading ──────────────────────────────────────── */
+    .section-label {
+      font-family: 'Dancing Script', cursive;
+      font-size: 1.3rem;
+      color: var(--rose-mid);
+      text-align: center;
+      margin-bottom: 8px;
+    }
+
+    .section-title {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: clamp(2rem, 6vw, 3.2rem);
+      font-weight: 600;
+      color: var(--dark);
+      text-align: center;
+      line-height: 1.2;
+      margin-bottom: 48px;
+    }
+
+    /* ── Love letter block ────────────────────────────────────── */
+    #letter {
+      background: var(--cream);
+    }
+
+    .letter-card {
+      background: white;
+      border-radius: 24px;
+      padding: 52px 48px;
+      box-shadow: 0 8px 48px rgba(192, 64, 107, 0.12);
+      border: 1px solid rgba(255, 200, 220, 0.4);
+      position: relative;
+    }
+
+    .letter-card::before {
+      content: '❝';
+      position: absolute;
+      top: 20px;
+      left: 28px;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 72px;
+      color: var(--rose-lt);
+      line-height: 1;
+    }
+
+    .letter-p {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: clamp(1.2rem, 3vw, 1.5rem);
+      line-height: 1.9;
+      color: #4A2035;
+      margin-bottom: 24px;
+    }
+
+    .letter-p:last-of-type { margin-bottom: 0; }
+
+    .letter-sign {
+      margin-top: 36px;
+      font-family: 'Dancing Script', cursive;
+      font-size: 1.8rem;
+      color: var(--rose);
+      text-align: right;
+    }
+
+    /* ── Reasons grid ─────────────────────────────────────────── */
+    #reasons {
+      background: linear-gradient(160deg, #fff5f0 0%, #fff0f5 100%);
+    }
+
+    .reasons-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 20px;
+    }
+
+    .reason-card {
+      background: white;
+      border-radius: 20px;
+      padding: 32px 28px;
+      box-shadow: 0 4px 24px rgba(192, 64, 107, 0.09);
+      border: 1px solid rgba(255, 200, 220, 0.35);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .reason-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 16px 40px rgba(192, 64, 107, 0.18);
+    }
+
+    .reason-emoji {
+      font-size: 40px;
+      margin-bottom: 14px;
+      display: block;
+    }
+
+    .reason-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: var(--dark);
+      margin-bottom: 8px;
+    }
+
+    .reason-text {
+      font-size: 0.95rem;
+      line-height: 1.7;
+      color: var(--mauve);
+    }
+
+    /* ── Big quote ────────────────────────────────────────────── */
+    #quote {
+      background: linear-gradient(160deg, #3D1A2C 0%, #6B2A45 100%);
+      text-align: center;
+      padding: 100px 24px;
+    }
+
+    .big-quote {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.8rem, 5vw, 3rem);
+      font-style: italic;
+      color: #FFE0EC;
+      line-height: 1.5;
+      max-width: 680px;
+      margin: 0 auto 24px;
+    }
+
+    .big-quote-attr {
+      font-family: 'Dancing Script', cursive;
+      font-size: 1.4rem;
+      color: var(--gold);
+    }
+
+    /* Decorative stars */
+    .stars {
+      font-size: 24px;
+      margin-bottom: 24px;
+      letter-spacing: 8px;
+    }
+
+    /* ── Final message ────────────────────────────────────────── */
+    #finale {
+      background: linear-gradient(160deg, #FFF0F5 0%, #FFD6E7 60%, #FFF0D6 100%);
+      text-align: center;
+      padding: 120px 24px;
+    }
+
+    .finale-big {
+      font-size: 80px;
+      margin-bottom: 32px;
+      display: block;
+      animation: pulse 2s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { transform: scale(1);    filter: drop-shadow(0 0 12px rgba(232,116,138,0.4)); }
+      50%       { transform: scale(1.12); filter: drop-shadow(0 0 28px rgba(232,116,138,0.7)); }
+    }
+
+    .finale-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2.2rem, 7vw, 4.5rem);
+      font-weight: 600;
+      color: var(--dark);
+      line-height: 1.2;
+      margin-bottom: 20px;
+    }
+
+    .finale-sub {
+      font-family: 'Dancing Script', cursive;
+      font-size: clamp(1.6rem, 5vw, 2.8rem);
+      color: var(--rose);
+    }
+
+    /* ── Footer ───────────────────────────────────────────────── */
+    footer {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+      padding: 32px 24px;
+      font-size: 13px;
+      color: rgba(61, 26, 44, 0.45);
+      letter-spacing: 0.05em;
+    }
+
+    /* ── Fade-in on scroll ────────────────────────────────────── */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ── Music toggle ─────────────────────────────────────────── */
+    #music-btn {
+      position: fixed;
+      bottom: 28px;
+      right: 28px;
+      z-index: 100;
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      border: none;
+      cursor: pointer;
+      background: white;
+      box-shadow: 0 4px 20px rgba(192, 64, 107, 0.25);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.3s ease;
+      outline: none;
+    }
+
+    #music-btn:hover {
+      transform: scale(1.1);
+      box-shadow: 0 8px 32px rgba(192, 64, 107, 0.4);
+    }
+
+    #music-btn.playing {
+      background: linear-gradient(135deg, #E8748A, #C0406B);
+    }
+
+    /* Animated bars shown when playing */
+    .bars {
+      display: flex;
+      align-items: flex-end;
+      gap: 3px;
+      height: 20px;
+    }
+
+    .bar {
+      width: 4px;
+      border-radius: 2px;
+      background: white;
+      animation: bounce-bar 0.8s ease-in-out infinite;
+    }
+
+    .bar:nth-child(1) { animation-delay: 0.0s; }
+    .bar:nth-child(2) { animation-delay: 0.15s; }
+    .bar:nth-child(3) { animation-delay: 0.3s; }
+    .bar:nth-child(4) { animation-delay: 0.15s; }
+
+    @keyframes bounce-bar {
+      0%, 100% { height: 4px;  }
+      50%       { height: 18px; }
+    }
+
+    /* Note icon when paused */
+    .note-icon {
+      font-size: 22px;
+      line-height: 1;
+      color: var(--rose);
+    }
+
+    /* Tooltip */
+    #music-tip {
+      position: fixed;
+      bottom: 90px;
+      right: 28px;
+      z-index: 100;
+      background: white;
+      color: var(--mauve);
+      font-family: 'Lato', sans-serif;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.03em;
+      padding: 6px 14px;
+      border-radius: 100px;
+      box-shadow: 0 4px 16px rgba(192, 64, 107, 0.18);
+      white-space: nowrap;
+      opacity: 0;
+      transform: translateY(6px);
+      transition: opacity 0.25s ease, transform 0.25s ease;
+      pointer-events: none;
+    }
+
+    #music-tip.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ── Mobile tweaks ────────────────────────────────────────── */
+    @media (max-width: 600px) {
+      .letter-card { padding: 36px 28px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Floating hearts layer -->
+  <div id="hearts-canvas"></div>
+
+  <!--
+    🎵 MUSIC SETUP:
+    To add background music, replace the src below with either:
+      A) A relative path:  src="ambient.mp3"  (put the MP3 next to this HTML file)
+      B) A direct URL:     src="https://..."  (must be a public, CORS-allowed MP3)
+    Free music: https://pixabay.com/music/ — search "soft piano" or "lofi"
+  -->
+  <audio id="bg-music" loop>
+    <source src="A Song For Mama - 128.MP3" type="audio/mpeg" />
+  </audio>
+
+  <!-- Music toggle button -->
+  <div id="music-tip">🎵 Tap for music</div>
+  <button id="music-btn" aria-label="Toggle background music" title="Toggle music">
+    <span class="note-icon">♪</span>
+  </button>
+
+  <!-- ── HERO ──────────────────────────────────────────────────── -->
+  <section id="hero">
+    <div class="container">
+      <span class="hero-flower">🌸</span>
+
+      <h1 class="hero-title">
+        Happy Mother's Day,<br>
+        <em>Mama</em> ❤️
+      </h1>
+      <!-- ✏️ Change "Lola" above to whatever you call your grandmother (Grandma, Nanay, Mama, etc.) -->
+
+      <p class="hero-sub">This page was made with all my love for you.</p>
+
+      <div class="scroll-hint">
+        <span>scroll down</span>
+        <span style="font-size:20px;">↓</span>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ── LETTER ──────────────────────────────────────────────── -->
+  <section id="letter">
+    <div class="container fade-in">
+      <p class="section-label">from my heart to yours</p>
+      <h2 class="section-title">A Letter to You</h2>
+
+      <div class="letter-card">
+        <!-- ✏️ Edit this letter — make it yours! -->
+        <p class="letter-p">
+          Dearest Mama,
+        </p>
+        <p class="letter-p">
+          There are no words that are big enough to hold everything I feel for you.
+          You have been my safe place, my home, and my greatest teacher — not through
+          lessons you sat me down to give, but through the quiet way you lived your life
+          with grace, patience, and so much love.
+        </p>
+        <p class="letter-p">
+          I have watched you hold our family together through storms I didn't even know
+          were happening. You carried so much in silence, so that the rest of us could
+          carry so little. That kind of love is rare, and I am so lucky it has always
+          been mine.
+        </p>
+        <p class="letter-p">
+          Thank you for every prayer you said for me. Thank you for every meal you made
+          with your hands. Thank you for every time you looked at me like I was the
+          most important person in the room — because that look is part of what made
+          me who I am today.
+        </p>
+        <p class="letter-p">
+          I love you more than I will ever be able to say. But I will spend my whole
+          life trying to show you.
+        </p>
+
+        <p class="letter-sign">Forever yours ❤️</p>
+        <!-- ✏️ Change to your name -->
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ── REASONS ─────────────────────────────────────────────── -->
+  <section id="reasons">
+    <div class="container">
+      <p class="section-label fade-in">a few of a million...</p>
+      <h2 class="section-title fade-in">Why I Love You</h2>
+
+      <div class="reasons-grid">
+        <!-- ✏️ Edit these cards to match your grandmother -->
+
+        <div class="reason-card fade-in">
+          <span class="reason-emoji">🙏</span>
+          <p class="reason-title">Your Prayers</p>
+          <p class="reason-text">Every blessing in my life has your prayers woven through it. I know you pray for us every single day, and I feel it.</p>
+        </div>
+
+        <div class="reason-card fade-in">
+          <span class="reason-emoji">🍲</span>
+          <p class="reason-title">Your Cooking</p>
+          <p class="reason-text">No restaurant in the world has ever made food that tastes the way yours does. That flavor is home, and it lives in my memory forever.</p>
+        </div>
+
+        <div class="reason-card fade-in">
+          <span class="reason-emoji">🤗</span>
+          <p class="reason-title">Your Hugs</p>
+          <p class="reason-text">Your hugs are the warmest, safest place I have ever been. Time stands still in them. I never want to let go.</p>
+        </div>
+
+        <div class="reason-card fade-in">
+          <span class="reason-emoji">💪</span>
+          <p class="reason-title">Your Strength</p>
+          <p class="reason-text">You have faced things that would break most people — and you faced them with faith and quiet courage. You are the strongest person I know.</p>
+        </div>
+
+        <div class="reason-card fade-in">
+          <span class="reason-emoji">😄</span>
+          <p class="reason-title">Your Laughter</p>
+          <p class="reason-text">Your laugh is one of the most beautiful sounds in the world to me. It lights up every room and everyone in it.</p>
+        </div>
+
+        <div class="reason-card fade-in">
+          <span class="reason-emoji">❤️</span>
+          <p class="reason-title">Simply You</p>
+          <p class="reason-text">The way you exist in this world — kind, steady, full of love — makes everything better. I am so proud to be yours.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ── QUOTE ───────────────────────────────────────────────── -->
+  <section id="quote">
+    <div class="container fade-in">
+      <div class="stars">✦ ✦ ✦</div>
+      <p class="big-quote">
+        "A grandmother's love is a forever kind of love —
+        it never asks for anything in return,
+        and it never, ever runs out."
+      </p>
+      <p class="big-quote-attr">— written for you, with all my heart</p>
+    </div>
+  </section>
+
+
+  <!-- ── FINAL MESSAGE ───────────────────────────────────────── -->
+  <section id="finale">
+    <div class="container fade-in">
+      <span class="finale-big">❤️</span>
+
+      <h2 class="finale-title">
+        In every lifetime,<br>I'd still choose you.
+      </h2>
+
+      <p class="finale-sub">I love you forever, Mama. 🌸</p>
+      <!-- ✏️ Change "Lola" to your name for grandmother -->
+
+      <div class="divider" style="margin-top: 48px;"></div>
+      <div class="divider-flower">🌸 🌷 🌺</div>
+    </div>
+  </section>
+
+
+  <!-- Footer -->
+  <footer>
+    Made with ❤️ — just for you
+  </footer>
+
+
+  <script>
+    // ── Music toggle ──────────────────────────────────────────
+    const audio   = document.getElementById('bg-music');
+    const btn     = document.getElementById('music-btn');
+    const tip     = document.getElementById('music-tip');
+    let playing   = false;
+    let tipTimer;
+
+    function showTip(msg) {
+      tip.textContent = msg;
+      tip.classList.add('show');
+      clearTimeout(tipTimer);
+      tipTimer = setTimeout(() => tip.classList.remove('show'), 2200);
+    }
+
+    // Show hint after 3 seconds so grandmother notices the button
+    setTimeout(() => showTip('🎵 Tap for music'), 3000);
+
+    btn.addEventListener('mouseenter', () => {
+      if (!playing) showTip('🎵 Tap for music');
+    });
+
+    btn.addEventListener('click', () => {
+      if (playing) {
+        audio.pause();
+        playing = false;
+        btn.classList.remove('playing');
+        btn.innerHTML = '<span class="note-icon">♪</span>';
+        showTip('🔇 Music paused');
+      } else {
+        audio.volume = 0.45;
+        audio.play()
+          .then(() => {
+            playing = true;
+            btn.classList.add('playing');
+            btn.innerHTML = `
+              <div class="bars">
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+              </div>`;
+            showTip('🎵 Playing...');
+          })
+          .catch(() => {
+            showTip('⚠️ No music file found');
+          });
+      }
+    });
+
+
+    // ── Floating hearts ───────────────────────────────────────
+    const canvas = document.getElementById('hearts-canvas');
+    const emojis = ['❤️', '🌸', '💕', '🌺', '💗', '✨', '🌷', '💖'];
+
+    function spawnHeart() {
+      const el = document.createElement('span');
+      el.className = 'heart';
+      el.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+
+      const left     = 4 + Math.random() * 92;   // 4–96% width
+      const duration = 7 + Math.random() * 8;     // 7–15s
+      const delay    = Math.random() * -duration; // stagger on load
+      const size     = 14 + Math.random() * 20;   // 14–34px
+
+      el.style.cssText = `
+        left: ${left}%;
+        font-size: ${size}px;
+        animation-duration: ${duration}s;
+        animation-delay: ${delay}s;
+      `;
+
+      canvas.appendChild(el);
+
+      // Remove after a few cycles to avoid DOM bloat
+      setTimeout(() => el.remove(), (duration + Math.abs(delay)) * 1000 + 2000);
+    }
+
+    // Spawn hearts periodically
+    for (let i = 0; i < 18; i++) spawnHeart();
+    setInterval(spawnHeart, 2400);
+
+
+    // ── Fade-in on scroll ─────────────────────────────────────
+    const observer = new IntersectionObserver(
+      (entries) => entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('visible');
+          // Stagger children if it's a grid
+          e.target.querySelectorAll('.fade-in').forEach((child, i) => {
+            child.style.transitionDelay = `${i * 0.12}s`;
+            child.classList.add('visible');
+          });
+        }
+      }),
+      { threshold: 0.12 }
+    );
+
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+  </script>
+
+</body>
+</html>
